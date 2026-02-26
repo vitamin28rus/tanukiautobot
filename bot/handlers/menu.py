@@ -152,9 +152,9 @@ async def show_cars(callback: CallbackQuery):
 @router.message(F.text == "Пример договора")
 async def contract_example(message: Message):
     paths = {
-        "Китай": "/Users/filipp/Documents/tgbot-auto/data/ПРИМЕР ДОГОВОР КИТАЙ.pdf",
-        "Корея": "/Users/filipp/Documents/tgbot-auto/data/ПРИМЕР ДОГОВОР КОРЕЯ.pdf",
-        "Япония": "/Users/filipp/Documents/tgbot-auto/data/ПРИМЕР ДОГОВОР ЯПОНИЯ.pdf"
+        "Китай": "data/ПРИМЕР ДОГОВОР КИТАЙ.pdf",
+        "Корея": "data/ПРИМЕР ДОГОВОР КОРЕЯ.pdf",
+        "Япония": "data/ПРИМЕР ДОГОВОР ЯПОНИЯ.pdf"
     }
     
     media = []
