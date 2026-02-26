@@ -5,15 +5,23 @@ from bot.config import ADMIN_IDS
 
 async def add_or_update_user(telegram_id: int, fullname: str, username: str):
     async with aiosqlite.connect(DB_PATH) as db:
-        role = 'admin' if telegram_id in ADMIN_IDS else 'user'
-        
-        await db.execute('''
-            INSERT INTO users (telegram_id, fullname, username, role)
-            VALUES (?, ?, ?, ?)
-            ON CONFLICT(telegram_id) DO UPDATE SET
-            fullname=excluded.fullname,
-            username=excluded.username;
-        ''', (telegram_id, fullname, username, role))
+        if telegram_id in ADMIN_IDS:
+            await db.execute('''
+                INSERT INTO users (telegram_id, fullname, username, role)
+                VALUES (?, ?, ?, 'admin')
+                ON CONFLICT(telegram_id) DO UPDATE SET
+                fullname=excluded.fullname,
+                username=excluded.username,
+                role='admin';
+            ''', (telegram_id, fullname, username))
+        else:
+            await db.execute('''
+                INSERT INTO users (telegram_id, fullname, username, role)
+                VALUES (?, ?, ?, 'user')
+                ON CONFLICT(telegram_id) DO UPDATE SET
+                fullname=excluded.fullname,
+                username=excluded.username;
+            ''', (telegram_id, fullname, username))
         await db.commit()
 
 async def get_user_by_tg_id(telegram_id: int):

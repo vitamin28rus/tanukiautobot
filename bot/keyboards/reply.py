@@ -1,13 +1,12 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-from bot.config import ADMIN_IDS
 from bot.database.crud import get_user_by_tg_id
 
 async def get_main_keyboard(telegram_id: int) -> ReplyKeyboardMarkup:
     """Returns the main reply keyboard. Adds Admin Panel if user is admin or manager."""
     keyboard = [
         [KeyboardButton(text="Расчет стоимости авто")],
-        [KeyboardButton(text="Как мы работаем"), KeyboardButton(text="Пример договора")],
-        [KeyboardButton(text="Карточка компании"), KeyboardButton(text="Как проходит оплата")],
+        [KeyboardButton(text="Процесс работы"), KeyboardButton(text="Пример договора")],
+        [KeyboardButton(text="Информация о компании"), KeyboardButton(text="Процесс оплаты")],
         [KeyboardButton(text="Подборки авто")]
     ]
     
