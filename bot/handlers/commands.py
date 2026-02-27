@@ -81,7 +81,7 @@ async def cmd_start(message: Message):
 async def cmd_clear(message: Message):
     await start_routine(message, clear=True)
     
-@router.message(F.text == "Отменить")
+@router.message(F.text.in_({"Отменить", "Назад"}))
 async def process_cancel(message: Message, state: FSMContext = None):
     if state:
         await state.clear()

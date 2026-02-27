@@ -7,8 +7,9 @@ async def get_main_keyboard(telegram_id: int) -> ReplyKeyboardMarkup:
         [KeyboardButton(text="Расчет стоимости авто")],
         [KeyboardButton(text="Процесс работы"), KeyboardButton(text="Пример договора")],
         [KeyboardButton(text="Информация о компании"), KeyboardButton(text="Процесс оплаты")],
-        [KeyboardButton(text="Подборки авто")]
+        [KeyboardButton(text="Подборки авто"), KeyboardButton(text="Популярные вопросы")]
     ]
+
     
     # Check role
     user = await get_user_by_tg_id(telegram_id)
@@ -40,6 +41,20 @@ def get_finish_photos_keyboard() -> ReplyKeyboardMarkup:
         keyboard=[
             [KeyboardButton(text="Завершить отправку фото")],
             [KeyboardButton(text="Отменить")]
+        ],
+        resize_keyboard=True
+    )
+
+def get_faq_reply_keyboard() -> ReplyKeyboardMarkup:
+    """Returns a reply keyboard for FAQ questions."""
+    return ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="В моем городе нет офиса компании, как заключить договор?")],
+            [KeyboardButton(text="Что означают аббревиатуры ТПО, ЭПТС, СБКТС?")],
+            [KeyboardButton(text="Сколько времени занимает доставка автомобиля?")],
+            [KeyboardButton(text="Из чего состоит цена авто?")],
+            [KeyboardButton(text="Преимущество покупки авто под заказ")],
+            [KeyboardButton(text="Назад")]
         ],
         resize_keyboard=True
     )

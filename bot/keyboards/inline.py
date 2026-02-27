@@ -6,21 +6,6 @@ def get_start_inline_keyboard() -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="Расчитать стоимость авто", callback_data="calc_cost")]
     ])
 
-def get_faq_keyboard() -> InlineKeyboardMarkup:
-    """Inline keyboard for FAQ questions."""
-    return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="Доставка автомобиля", callback_data="faq_delivery")],
-        [InlineKeyboardButton(text="Что включает в себя стоимость", callback_data="faq_cost")],
-        [InlineKeyboardButton(text="Страхуется ли автомобиль", callback_data="faq_insurance")],
-        [InlineKeyboardButton(text="Запчасти для китайских авто", callback_data="faq_parts")],
-        [InlineKeyboardButton(text="Почему выгодно покупать под заказ", callback_data="faq_profit")],
-        [InlineKeyboardButton(text="Как заключить договор (нет офиса)", callback_data="faq_contract")],
-        [InlineKeyboardButton(text="Что такое ЭПТС, ТПО, СБКТС", callback_data="faq_terms")],
-        [InlineKeyboardButton(text="Сколько времени занимает доставка?", callback_data="faq_time")],
-        [InlineKeyboardButton(text="Как осуществляется оплата", callback_data="faq_payment")],
-        [InlineKeyboardButton(text="Возвращается ли депозит?", callback_data="faq_deposit")]
-    ])
-
 def get_car_picks_keyboard() -> InlineKeyboardMarkup:
     """Inline keyboard for car selections by country."""
     return InlineKeyboardMarkup(inline_keyboard=[
