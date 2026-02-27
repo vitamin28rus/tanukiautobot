@@ -53,7 +53,7 @@ def get_faq_reply_keyboard() -> ReplyKeyboardMarkup:
             [KeyboardButton(text="Что означают аббревиатуры ТПО, ЭПТС, СБКТС?")],
             [KeyboardButton(text="Сколько времени занимает доставка автомобиля?")],
             [KeyboardButton(text="Из чего состоит цена авто?")],
-            [KeyboardButton(text="Преимущество покупки авто под заказ")],
+            [KeyboardButton(text="Преимущества покупки авто под заказ")],
             [KeyboardButton(text="Назад")]
         ],
         resize_keyboard=True

@@ -66,7 +66,7 @@ async def start_routine(message: Message, clear: bool = False):
     keyboard = await get_main_keyboard(user.id)
     inline_kb = get_start_inline_keyboard()
     
-    photo = FSInputFile("data/hello.jpeg")
+    photo = FSInputFile("data/hello2.jpeg")
     await message.answer_photo(photo=photo, caption=greeting, reply_markup=inline_kb)
     await message.answer("Выберите действие:", reply_markup=keyboard)
 
